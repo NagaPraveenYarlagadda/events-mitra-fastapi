@@ -128,3 +128,4 @@ Visit `http://localhost:8000` in your browser. For another port, use `--port 809
 
 ---
 [FastAPI & Stripe](https://blog.appseed.us/fastapi-stripe-free-ecommerce/) `Mini eCommerce` - Free sample provided by [AppSeed](https://appseed.us).
+85e9214072797365bc5de7d43356a8b4147b2ebb
