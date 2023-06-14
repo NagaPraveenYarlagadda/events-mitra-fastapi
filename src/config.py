@@ -1,14 +1,17 @@
 # -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+Copyright (c) 2023 - present Yarlagadda Naga Praveen
 """
+import socket
+
 
 from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     debug: bool = False
     secret_key: str = 'S#perS3crEt_9999'
-    server_address: str = 'http://localhost:8000/'
+    host_name: str = socket.gethostname()
+    server_address: str = socket.gethostbyname(host_name)
     
     stripe_secret_key: str = None
     stripe_publishable_key: str = None
