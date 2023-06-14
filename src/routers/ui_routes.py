@@ -231,7 +231,7 @@ def page_sign_in(request: Request):
     })
 
 @router.get('/page-fh')
-def page_sign_in(request: Request):
+def page_fh(request: Request):
     return TEMPLATES.TemplateResponse("pages/fh-management.html", {
         "request" : request,
         "config" : settings
