@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+Copyright (c) 2023 - present Yarlagadda Naga Praveen
 """
 
 from fastapi import APIRouter, Request, status, HTTPException
@@ -226,6 +226,13 @@ def page_author(request: Request):
 @router.get('/page-sign-in')
 def page_sign_in(request: Request):
     return TEMPLATES.TemplateResponse("pages/page-sign-in.html", {
+        "request" : request,
+        "config" : settings
+    })
+
+@router.get('/page-fh')
+def page_sign_in(request: Request):
+    return TEMPLATES.TemplateResponse("pages/fh-management.html", {
         "request" : request,
         "config" : settings
     })

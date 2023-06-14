@@ -1,0 +1,135 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block title %} Function Hall Booking {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/soft-ui-design-system/dist/bootstrap.min.css">
+{% endblock stylesheets %}
+{% block body_class %} sign-in-illustration {% endblock body_class %}
+{% block content %}
+{% include "includes/navigation.html" %}
+
+  <div class="container mt-7">
+    <h1>Add Function Hall</h1>
+    <div class="card p-5 mt-4 shadow-lg">
+      <form id="function-hall-form">
+        <div class="mb-3">
+          <label for="name" class="form-label">Hall Name</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="capacity" class="form-label">Capacity</label>
+          <input type="number" class="form-control" id="capacity" required>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" class="form-control" id="location" required>
+        </div>
+        <div class="mb-3">
+          <label for="contact-person" class="form-label">Contact Person</label>
+          <input type="text" class="form-control" id="contact-person" required>
+        </div>
+        <div class="mb-3">
+          <label for="contact-number" class="form-label">Contact Number</label>
+          <input type="text" class="form-control" id="contact-number" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Function Hall</button>
+      </form>
+    </div>
+
+    <h1 class="mt-5">Add Booking</h1>
+    <div class="card p-5 mt-4 shadow-lg">
+      <form id="booking-form">
+        <div class="mb-3">
+          <label for="hall-name" class="form-label">Hall Name</label>
+          <input type="text" class="form-control" id="hall-name" required>
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="mb-3">
+          <label for="start-time" class="form-label">Start Time</label>
+          <input type="time" class="form-control" id="start-time" required>
+        </div>
+        <div class="mb-3">
+          <label for="end-time" class="form-label">End Time</label>
+          <input type="time" class="form-control" id="end-time" required>
+        </div>
+        <div class="mb-3">
+          <label for="customer-name" class="form-label">Customer Name</label>
+          <input type="text" class="form-control" id="customer-name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Booking</button>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+
+<script>
+  const functionHallForm = document.getElementById('function-hall-form');
+  const bookingForm = document.getElementById('booking-form');
+
+  functionHallForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const capacity = document.getElementById('capacity').value;
+    const location = document.getElementById('location').value;
+    const contactPerson = document.getElementById('contact-person').value;
+    const contactNumber = document.getElementById('contact-number').value;
+
+    try {
+      const response = await axios.post('/api/function_halls', {
+        name,
+        capacity,
+        location,
+        contact_person: contactPerson,
+        contact_number: contactNumber
+      });
+
+      console.log(response.data);
+      alert(`Successfully saved function hall with name "${response.data.name}"`);
+    } catch (error) {
+      console.error(error);
+      alert('Error adding function hall');
+    }
+  });
+
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const hallName = document.getElementById('hall-name').value;
+    const date = document.getElementById('date').value;
+    const startTime = document.getElementById('start-time').value;
+    const endTime = document.getElementById('end-time').value;
+    const customerName = document.getElementById('customer-name').value;
+
+    try {
+      const response = await axios.post('/api/bookings', {
+        hall_name: hallName,
+        date,
+        start_time: startTime,
+        end_time: endTime,
+        customer_name: customerName
+      });
+
+      console.log(response.data);
+      alert(`Successfully booked function hall with name "${response.data.hall_name}" on ${response.data.date}`);
+
+    } catch (error) {
+      console.error(error);
+      alert('Error adding booking');
+    }
+  });
+</script>
+
+{% endblock javascripts %}
+</body>
+</html>

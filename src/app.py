@@ -11,6 +11,8 @@ from src.config import settings
 from src.routers.ui_routes import router as ui_router
 from src.routers.products import router as product_router
 from src.routers.auth import router as auth_router
+from src.fh_manage import router as fh_router
+from src.fh_booking import router as fhb_router
 
 if (settings.debug=='True'):
     app = FastAPI(debug=True, reload=True)
@@ -22,3 +24,5 @@ app.mount("/static", StaticFiles(directory="src/static"), name="static")
 app.include_router(ui_router)
 app.include_router(product_router)
 app.include_router(auth_router)
+app.include_router(fh_router)
+app.include_router(fhb_router)

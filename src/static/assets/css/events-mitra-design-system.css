@@ -1,9 +1,3 @@
-/*!
- * Bootstrap v5.0.0-beta2 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #63B3ED;
   --bs-indigo: #596CFF;
@@ -7263,6 +7257,10 @@ fieldset:disabled .btn {
   top: 0 !important;
 }
 
+.top-10 {
+  top: 10 !important;
+}
+
 .top-50 {
   top: 50% !important;
 }
@@ -12596,14 +12594,11 @@ fieldset:disabled .btn {
 /*!
 
 =========================================================
-* Soft UI Design System - v1.0.1
+* Events Mitra - v1.0.1
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-design-system
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (site.license)
-
-* Coded by www.creative-tim.com
+* Copyright 2023 Events Mitra
+* Coded by Yarlagadda Naga Praveen
 
 =========================================================
 
@@ -15071,6 +15066,10 @@ p {
 
 .h-100-vh {
   height: 100vh;
+}
+
+.section-height-10 {
+  min-height: 10vh;
 }
 
 .section-height-25 {

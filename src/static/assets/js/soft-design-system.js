@@ -1,14 +1,11 @@
 /*!
 
 =========================================================
-* Soft UI Design System - v1.0.1
+* Events Mitra - v1.0.1
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/black-dashboard
-* Copyright site.year Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/black-dashboard/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
+* Copyright 2023 Events Mitra
+* Coded by Yarlagadda Naga Praveen
 
 =========================================================
 
